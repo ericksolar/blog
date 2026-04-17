@@ -18,6 +18,7 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nombre;
+    private String accion;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
@@ -25,9 +26,10 @@ public class Role {
             joinColumns = @JoinColumn(name = "role_id"),
             inverseJoinColumns = @JoinColumn(name = "permission_id")
     )
-    private Set<Role> roles = new HashSet<>();
+    private Set<Permission> permissions = new HashSet<>();
 
-    private Set<Permission> permissions;
+    private String recurso;
+
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
     private LocalDateTime deletedAt;

@@ -20,7 +20,7 @@ public class Comment {
 
     @ManyToOne
     @JoinColumn(name = "parent_id", nullable = true)
-    private List<Comment> parent_id;
+        private List<Comment> parent;
 
     @OneToMany(mappedBy = "parent")
     private List<Comment> replies;
