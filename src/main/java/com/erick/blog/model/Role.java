@@ -15,7 +15,6 @@ import java.util.Set;
 @AllArgsConstructor
 @Getter
 @Setter
-@SQLRestriction("deleted_at IS NULL")
 @Entity
 public class Role {
 
@@ -37,6 +36,5 @@ public class Role {
 
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
-    private LocalDateTime deletedAt;
 
 }

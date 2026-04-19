@@ -17,11 +17,7 @@ import java.util.Set;
 @Setter
 @SQLRestriction("deleted_at IS NULL")
 @Entity
-public class User {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+public class User extends BaseEntity{
 
     @Column(nullable = false, unique = true)
     private String email;
@@ -40,8 +36,5 @@ public class User {
     )
     private Set<Role> roles = new HashSet<>();
 
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
-    private LocalDateTime deletedAt;
 
 }

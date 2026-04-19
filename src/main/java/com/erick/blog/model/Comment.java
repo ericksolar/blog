@@ -18,11 +18,7 @@ import java.util.List;
 @SQLRestriction("deleted_at IS NULL")
 @Entity
 @Table(name = "comments")
-public class Comment {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Comment extends BaseEntity{
 
     @ManyToOne
     @JoinColumn(name = "parent_id")
@@ -41,8 +37,5 @@ public class Comment {
 
     private String contenido;
 
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
-    private LocalDateTime deletedAt;
 
 }

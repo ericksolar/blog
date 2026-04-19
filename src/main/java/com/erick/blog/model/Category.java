@@ -17,15 +17,9 @@ import java.time.LocalDateTime;
 @Setter
 @SQLRestriction("deleted_at IS NULL") // solo trae registros activos
 @Entity
-public class Category {
+public class Category extends BaseEntity{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     private String nombre;
     private String slug;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
-    private LocalDateTime deletedAt;
 
 }
