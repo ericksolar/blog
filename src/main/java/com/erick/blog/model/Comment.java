@@ -8,6 +8,7 @@ import lombok.Setter;
 import org.hibernate.annotations.SQLRestriction;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @NoArgsConstructor
@@ -25,10 +26,10 @@ public class Comment {
 
     @ManyToOne
     @JoinColumn(name = "parent_id")
-    private List<Comment> parent;
+    private Comment parent; //padre
 
     @OneToMany(mappedBy = "parent")
-    private List<Comment> replies;
+    private List<Comment> replies = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(name = "post_id", nullable = false)
