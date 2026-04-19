@@ -24,7 +24,7 @@ public class Comment {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "parent_id", nullable = true)
+    @JoinColumn(name = "parent_id")
     private List<Comment> parent;
 
     @OneToMany(mappedBy = "parent")
