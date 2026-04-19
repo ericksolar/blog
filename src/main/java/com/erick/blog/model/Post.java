@@ -2,16 +2,21 @@ package com.erick.blog.model;
 
 import com.erick.blog.model.enums.PostStatus;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.SQLRestriction;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Set;
-import java.util.UUID;
 
+@NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
+@SQLRestriction("deleted_at IS NULL")
 @Entity
 public class Post {
 
@@ -35,7 +40,8 @@ public class Post {
             inverseJoinColumns = @JoinColumn(name = "category_id"))
     private Set<Category> categories;
 
-    @OneToMany(mappedBy = "post")
+    // cascade se borras el post se borran los comentarios
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Comment> comments;
 
     private LocalDateTime publishedAt;

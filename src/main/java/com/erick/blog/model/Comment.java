@@ -1,15 +1,20 @@
 package com.erick.blog.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.SQLRestriction;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.UUID;
 
+@NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
+@SQLRestriction("deleted_at IS NULL")
 @Entity
 @Table(name = "comments")
 public class Comment {
@@ -20,7 +25,7 @@ public class Comment {
 
     @ManyToOne
     @JoinColumn(name = "parent_id", nullable = true)
-        private List<Comment> parent;
+    private List<Comment> parent;
 
     @OneToMany(mappedBy = "parent")
     private List<Comment> replies;
