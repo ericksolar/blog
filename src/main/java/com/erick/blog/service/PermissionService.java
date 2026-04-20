@@ -19,11 +19,13 @@ public class PermissionService {
     }
 
     //create
-    public void crearPermiso(Permission permission){
+    public Permission crearPermiso(Permission permission){
         permissionRepository.save(permission);
+        return permission;
     }
 
 
+    //editar
 
 
 
