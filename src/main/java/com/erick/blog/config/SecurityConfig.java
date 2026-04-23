@@ -16,6 +16,7 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/permission/**").permitAll() // temporal para probar
+                        .requestMatchers("/api/rol/**").permitAll() // temporal para probar
                         .anyRequest().authenticated()
                 );
         return http.build();

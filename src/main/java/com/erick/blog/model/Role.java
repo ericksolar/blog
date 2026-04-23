@@ -1,12 +1,11 @@
 package com.erick.blog.model;
 
+import com.erick.blog.model.enums.RoleEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.SQLRestriction;
-
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
@@ -16,13 +15,15 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity
-public class Role {
+public class    Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nombre;
-    private String accion;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, unique = true)
+    private RoleEnum nombre;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
@@ -31,8 +32,6 @@ public class Role {
             inverseJoinColumns = @JoinColumn(name = "permission_id")
     )
     private Set<Permission> permissions = new HashSet<>();
-
-    private String recurso;
 
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;

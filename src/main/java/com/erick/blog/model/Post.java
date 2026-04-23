@@ -27,7 +27,10 @@ public class Post extends BaseEntity{
     private String titulo;
     private String slug;
     private String contenido;
-    private PostStatus status;    // DRAFT | PUBLISHED | ARCHIVED
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, unique = true)
+    private PostStatus status;
 
     @ManyToMany
     @JoinTable(name = "post_category",
