@@ -22,6 +22,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/category/**").permitAll()
                         .requestMatchers("/api/post/**").permitAll()
                         .requestMatchers("/api/comment/**").permitAll()
+                        .requestMatchers("/actuator/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin(Customizer.withDefaults()); // <-- esto activa el login de Spring

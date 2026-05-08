@@ -30,7 +30,7 @@ public class UserService {
         );
 
         User user = new User();
-        user.setNombre(request.getNombre());
+        user.setUsername(request.getNombre());
         user.setEmail(request.getEmail());
         user.setPasswordHash(request.getPasswordHash());
         user.setRoles(roles);

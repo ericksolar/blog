@@ -48,7 +48,7 @@ public class PostResponse {
         public static AuthorResponse from(User user) {
             AuthorResponse r = new AuthorResponse();
             r.id = user.getId();
-            r.nombre = user.getNombre();
+            r.nombre = user.getUsername();
             r.email = user.getEmail();
             return r;
         }

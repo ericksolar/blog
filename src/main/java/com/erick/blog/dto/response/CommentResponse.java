@@ -44,7 +44,7 @@ public class CommentResponse {
         public static AuthorResponse from(com.erick.blog.model.User user) {
             AuthorResponse r = new AuthorResponse();
             r.id = user.getId();
-            r.nombre = user.getNombre();
+            r.nombre = user.getUsername();
             r.email = user.getEmail();
             return r;
         }

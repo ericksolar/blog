@@ -23,7 +23,7 @@ public class User extends BaseEntity{
     private String email;
 
     @Column(nullable = false)
-    private String nombre;
+    private String username;
 
     @Column(nullable = false)
     private String passwordHash;
