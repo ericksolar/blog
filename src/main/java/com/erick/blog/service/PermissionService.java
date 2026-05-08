@@ -14,9 +14,7 @@ public class PermissionService {
     private final PermissionRepository permissionRepository;
 
     //obtener
-    public List<Permission> obterPermisos(){
-        return permissionRepository.findAll();
-    }
+    public List<Permission> obterPermisos(){return permissionRepository.findAll();}
 
     //create
     public Permission crearPermiso(Permission permission){
